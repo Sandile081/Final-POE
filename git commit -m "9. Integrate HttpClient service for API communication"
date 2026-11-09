@@ -1,0 +1,2 @@
+Built the EventApiServices class in the MVC project. This acts as a bridge, 
+using HttpClient to send JSON data to the API and receive it back.
