@@ -1,0 +1,1 @@
+Went through the code to remove unused variables, fixed typo errors, and ensured all relational IDs (LocationID, CategoriesID) mapped correctly between the frontend and backend
