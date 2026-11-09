@@ -1,0 +1,1 @@
+Resolved issues where the MVC app was expecting JSON but the API was sending plain text (or vice versa), and fixed route parameters
