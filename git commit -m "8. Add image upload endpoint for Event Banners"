@@ -1,0 +1,1 @@
+Created the API endpoint that receives a string URL and saves it to the BannerUrl column of a specific Event.
