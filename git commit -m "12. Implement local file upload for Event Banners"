@@ -1,0 +1,2 @@
+Wrote the MVC logic to catch an uploaded image file, save it to the wwwroot/images/banners folder on 
+the hard drive, and send the generated URL to the API.
