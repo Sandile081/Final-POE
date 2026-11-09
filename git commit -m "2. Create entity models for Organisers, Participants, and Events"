@@ -1,0 +1,1 @@
+Wrote the C# classes (Models) for the database tables. Added data annotations like [Required] and [Key] to enforce validation and define primary keys.
