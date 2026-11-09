@@ -1,0 +1,1 @@
+ Created the EventsDbContext, added the DbSet properties for each table, and configured the connection string to point to SQL Server.
