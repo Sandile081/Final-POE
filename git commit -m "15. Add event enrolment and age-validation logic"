@@ -1,0 +1,2 @@
+Built the 'Enrol' button functionality. When a Participant enters their age, the system validates it against the
+Category's age limits and saves the enrolment to the database.
