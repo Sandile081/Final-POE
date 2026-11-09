@@ -1,0 +1,23 @@
+﻿@model RaceDayManagementSystem.Models.Result;
+
+@{
+	ViewData["Title"] = "Event Details";
+}
+
+<h1>Event Details</h1>
+
+<dl class="row">
+	<dt class="col-sm-2">Id</dt>
+	<dd class="col-sm-10">@Model.ResultID</dd>
+
+	<dt class="col-sm-2">Event Name</dt>
+	<dd class="col-sm-10">@Model.Time</dd>
+
+	<dt class="col-sm-2">Finishing Position</dt>
+	<dd class="col-sm-10">@Model.FinishingPosition</dd>
+
+
+</dl>
+
+
+<a asp-controller="Events" asp-action="Index" class="btn btn-secondary">Back to List</a>

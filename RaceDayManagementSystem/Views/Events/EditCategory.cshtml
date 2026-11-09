@@ -1,0 +1,49 @@
+﻿@model RaceDayManagementSystem.Models.Categories;
+
+@{
+ViewData["Title"] = "Edit Category";
+}
+
+<h1>Edit Category</h1>
+
+<form asp-action="UpdateCategory" asp-route-id="@Model.CategoriesID" method="post">
+
+	<input type="hidden" asp-for="CategoriesID" />
+
+
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+	<div class="mb-3">
+		<label asp-for="Age" class="form-label">Age</label>
+		<input asp-for="Age" class="form-control" />
+		<span asp-validation-for="Age" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="categoryType" class="form-label">Category Type</label>
+		<input asp-for="categoryType" class="form-control" />
+		<span asp-validation-for="categoryType" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="MaxKM" class="form-label">MaxKM</label>
+		<input asp-for="MaxKM" class="form-control" />
+		<span asp-validation-for="MaxKM" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="MinKM" class="form-label">MinKM</label>
+		<input asp-for="MinKM" class="form-control" />
+		<span asp-validation-for="MinKM" class="text-danger"></span>
+	</div>
+
+	<button type="submit" class="btn btn-success">Update Category</button>
+
+	<a asp-controller="Events" asp-action="OrganiserEvents" class="btn btn-secondary">Back to List</a>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
+
+

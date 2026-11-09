@@ -1,0 +1,67 @@
+﻿@model IEnumerable<RaceDayManagementSystem.Models.Participant>
+
+@{
+	ViewData["Title"] = "Enrolled Participants";
+}
+
+<h1>Events</h1>
+
+@if (TempData["Success"] != null)
+{
+	<div class="alert alert-success">@TempData["Success"]</div>
+}
+
+@if (TempData["Error"] != null)
+{
+	<div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+
+
+<div class="Container">
+	<div class="navigation">
+		<h1><strong>Enrolled Participants</strong></h1>
+		<p>
+			<a asp-controller="Events" asp-action="OrganiserEvents" class="btn btn-secondary">Back to Deshboard</a>
+		</p>
+	</div>
+
+
+	<div class="DisplayEvents">
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ParticipantID</th>
+					<th>Participant Name</th>
+					<th>Surname</th>
+					<th>Selected Category</th>
+					<th>Enrolment Status</th>
+					<th>Update Enrolment Status</th>
+				</tr>
+
+			</thead>
+			<tbody>
+				@foreach (var participant in Model)
+				{
+					<tr>
+						<td>@participant.ParticipantID</td>
+						<td>@participant.Pname</td>
+						<td>@participant.Psurname</td>
+						<td>@participant.SelectedCatagory</td>
+						<td>@participant.EnrolmentStatus</td>
+
+						<td>
+							<a asp-action="UpdateStatus" asp-route-id="@participant.ParticipantID">Status Update</a>
+							<a asp-action="EditResults" asp-route-id="@participant.ParticipantID">Results Update</a>
+
+						</td>
+
+					</tr>
+				}
+			</tbody>
+		</table>
+
+	</div>
+
+</div>

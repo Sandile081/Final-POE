@@ -1,0 +1,57 @@
+﻿@model RaceDayManagementSystem.Models.Events;
+
+@{
+	ViewData["Title"] = "Edit Events";
+}
+
+<h1>Edit Events</h1>
+
+<form asp-action="UpdateEvent" asp-route-id="@Model.EventID" method="post">
+
+	<input type="hidden" asp-for="EventID" />
+	<input type="hidden" asp-for="OrganiserID" />
+	<input type="hidden" asp-for="LocationID" />
+	<input type="hidden" asp-for="CategoriesID" />
+
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+	<div class="mb-3">
+		<label asp-for="EventName" class="form-label">Event Name</label>
+		<input asp-for="EventName" class="form-control" />
+		<span asp-validation-for="EventName" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Description" class="form-label">Description</label>
+		<input asp-for="Description" class="form-control" />
+		<span asp-validation-for="Description" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Date" class="form-label">Date</label>
+		<input asp-for="Date" class="form-control" />
+		<span asp-validation-for="Date" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Distance" class="form-label">Distance</label>
+		<input asp-for="Distance" class="form-control" />
+		<span asp-validation-for="Distance" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="EventType" class="form-label">EventType</label>
+		<input asp-for="EventType" class="form-control" />
+		<span asp-validation-for="EventType" class="text-danger"></span>
+	</div>
+
+	<button type="submit" class="btn btn-success">Update Event</button>
+
+	<a asp-controller="Events" asp-action="OrganiserEvents" class="btn btn-secondary">Back to List</a>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
+
+

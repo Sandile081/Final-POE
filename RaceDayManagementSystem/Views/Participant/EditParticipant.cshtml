@@ -1,0 +1,46 @@
+﻿@model RaceDayManagementSystem.Models.Participant;
+
+@{
+	ViewData["Title"] = "Edit Participant";
+}
+
+<h1>Edit Profile</h1>
+
+<form asp-action="EditProfile" asp-route-id="@Model.ParticipantID" method="post">
+
+	<input type="hidden" asp-for="ParticipantID" />
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+	<div class="mb-3">
+		<label asp-for="Pname" class="form-label"></label>
+		<input asp-for="Pname" class="form-control" />
+		<span asp-validation-for="Pname" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Psurname" class="form-label"></label>
+		<input asp-for="Psurname" class="form-control" />
+		<span asp-validation-for="Psurname" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Pusername" class="form-label"></label>
+		<input asp-for="Pusername" class="form-control" />
+		<span asp-validation-for="Pusername" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Ppassword" class="form-label"></label>
+		<input asp-for="Ppassword" class="form-control" />
+		<span asp-validation-for="Ppassword" class="text-danger"></span>
+	</div>
+
+
+
+	<button type="submit" class="btn btn-success">Update Profile</button>
+	<a asp-controller="Events" asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

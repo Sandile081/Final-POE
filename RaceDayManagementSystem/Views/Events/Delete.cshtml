@@ -1,0 +1,23 @@
+﻿@model RaceDayManagementSystem.Models.Events;
+
+@{
+	ViewData["Title"] = "Delete Event";
+}
+
+<h1>Delete Event</h1>
+
+<div class="alert alert-warning">
+	Are you sure you want to Delete this Event?
+</div>
+
+<p><strong>Id:</strong> @Model.EventID</p>
+<p><strong>Event Name:</strong> @Model.EventName</p>
+<p><strong>Description:</strong> @Model.Description</p>
+<p><strong>Date:</strong>@Model.Date</p>
+<p><strong>Distance:</strong>@Model.Distance</p>
+<p><strong>Event Type:</strong>@Model.EventType</p>
+
+<form asp-action="DeleteEvent" asp-route-id="@Model.EventID" method="post">
+	<button type="submit" class="btn btn-danger">Confirm Delete</button>
+	<a asp-controller="Events" asp-action="OrganiserEvents" class="btn btn-secondary">Cancel</a>
+</form>

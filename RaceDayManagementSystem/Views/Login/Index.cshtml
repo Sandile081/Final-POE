@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<style>
+    /* Custom styles to make it look premium */
+    .login-container {
+        min-height: 80vh; /* Takes up most of the screen height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        padding: 40px;
+        max-width: 450px;
+        width: 100%;
+        background: #ffffff;
+    }
+    .role-btn {
+        padding: 15px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+    .role-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-card text-center">
+        
+        <!-- Logo or Icon (Optional) -->
+        <div class="mb-4">
+            <i class="bi bi-trophy-fill text-primary" style="font-size: 3rem;"></i>
+        </div>
+
+        <h1 class="fw-bold mb-3">RaceDay</h1>
+        <p class="text-muted mb-4">Welcome to the RaceDay Management System. Please select your portal to continue.</p>
+
+        <div class="d-grid gap-3">
+            <!-- Participant Button -->
+            <a asp-action="ParticipantLogin" class="btn btn-primary role-btn">
+                <i class="bi bi-person-running me-2"></i> Participant Portal
+            </a>
+
+            <!-- Organiser Button -->
+            <a asp-action="OrganiserLogin" class="btn btn-outline-dark role-btn">
+                <i class="bi bi-briefcase me-2"></i> Organiser Portal
+            </a>
+        </div>
+
+    </div>
+</div>

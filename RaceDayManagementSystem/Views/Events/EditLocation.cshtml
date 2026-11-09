@@ -1,0 +1,46 @@
+﻿@model RaceDayManagementSystem.Models.Location;
+
+@{
+	ViewData["Title"] = "Edit Location";
+}
+
+<h1>Edit Events</h1>
+
+<form asp-action="UpdateLocation" asp-route-id="@Model.LocationID" method="post">
+
+	<input type="hidden" asp-for="LocationID" />
+
+
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+	<div class="mb-3">
+		<label asp-for="Province" class="form-label">Province</label>
+		<input asp-for="Province" class="form-control" />
+		<span asp-validation-for="Province" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Town" class="form-label">Town</label>
+		<input asp-for="Town" class="form-control" />
+		<span asp-validation-for="Town" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="PhysicalAddress" class="form-label">Physical Address</label>
+		<input asp-for="PhysicalAddress" class="form-control" />
+		<span asp-validation-for="PhysicalAddress" class="text-danger"></span>
+	</div>
+
+
+
+	
+
+	<button type="submit" class="btn btn-success">Update Location</button>
+
+	<a asp-controller="Events" asp-action="OrganiserEvents" class="btn btn-secondary">Back to List</a>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
+

@@ -1,0 +1,80 @@
+﻿@model RaceDayManagementSystem.Models.OrganiserLogin;
+
+@{
+    ViewData["Title"] = "Organiser Login";
+}
+
+<style>
+    .login-container {
+        min-height: 75vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        padding: 40px;
+        max-width: 450px;
+        width: 100%;
+        background: #ffffff;
+    }
+    .form-control {
+        border-radius: 10px;
+        padding: 12px;
+    }
+    .btn-custom {
+        border-radius: 10px;
+        padding: 12px;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-card">
+        
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Organiser Portal</h2>
+            <p class="text-muted">Sign in to manage your events</p>
+        </div>
+
+       
+        <form asp-action="LoggingIn" method="post">
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-4">
+                <label asp-for="OrganiserUsername" class="form-label fw-semibold">Username</label>
+                <input asp-for="OrganiserUsername" class="form-control" placeholder="Enter your username" />
+                <span asp-validation-for="OrganiserUsername" class="text-danger"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="OrganiserPassword" class="form-label fw-semibold">Password</label>
+                <input asp-for="OrganiserPassword" class="form-control" type="password" placeholder="Enter your password" />
+                <span asp-validation-for="OrganiserPassword" class="text-danger"></span>
+            </div>
+
+            <div class="d-grid gap-3 mt-4">
+                <button type="submit" class="btn btn-dark btn-custom">
+                    Log In
+                </button>
+            </div>
+
+        </form>
+
+        <div class="text-center mt-4">
+            <p class="mb-0 text-muted">Don't have an account?</p>
+            <!-- Made the register button look like a link for better UX -->
+            <a asp-controller="Organiser" asp-action="Index" class="text-decoration-none fw-semibold">Register here</a>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <!-- This ensures client-side validation works instantly -->
+    <partial name="_ValidationScriptsPartial" />
+}

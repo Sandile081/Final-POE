@@ -1,0 +1,95 @@
+﻿@model RaceDayManagementSystem.Models.Organiser;
+
+@{
+    ViewData["Title"] = "Organiser Registration";
+}
+
+<style>
+    .register-container {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0;
+    }
+    .register-card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        padding: 40px;
+        max-width: 550px;
+        width: 100%;
+        background: #ffffff;
+    }
+    .form-control {
+        border-radius: 10px;
+        padding: 12px;
+    }
+    .btn-custom {
+        border-radius: 10px;
+        padding: 12px;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+</style>
+
+<div class="register-container">
+    <div class="register-card">
+        
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Organiser Sign Up</h2>
+            <p class="text-muted">Create an account to start hosting events</p>
+        </div>
+
+        <form asp-action="Registration" method="post">
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ORname" class="form-label fw-semibold">Name</label>
+                    <input asp-for="ORname" class="form-control" placeholder="First name" />
+                    <span asp-validation-for="ORname" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ORsurname" class="form-label fw-semibold">Surname</label>
+                    <input asp-for="ORsurname" class="form-control" placeholder="Last name" />
+                    <span asp-validation-for="ORsurname" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ORusername" class="form-label fw-semibold">Username</label>
+                <input asp-for="ORusername" class="form-control" placeholder="Choose a username" />
+                <span asp-validation-for="ORusername" class="text-danger"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="ORpassword" class="form-label fw-semibold">Password</label>
+                <!-- Changed type to password so the text is hidden -->
+                <input asp-for="ORpassword" class="form-control" type="password" placeholder="Create a strong password" />
+                <span asp-validation-for="ORpassword" class="text-danger"></span>
+            </div>
+
+            <div class="d-grid gap-3 mt-4">
+                <!-- Used btn-dark to match the Organiser theme -->
+                <button type="submit" class="btn btn-dark btn-custom">
+                    Register as Organiser
+                </button>
+            </div>
+
+        </form>
+
+        <div class="text-center mt-4">
+            <p class="mb-0 text-muted">Already have an account?</p>
+            <!-- Update this route to match your actual Organiser login route -->
+            <a asp-controller="Login" asp-action="OrganiserLogin" class="text-decoration-none fw-semibold">Log in here</a>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

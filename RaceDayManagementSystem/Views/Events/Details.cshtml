@@ -1,0 +1,42 @@
+﻿@model RaceDayManagementSystem.Models.Events;
+
+@{
+	ViewData["Title"] = "Event Details";
+}
+
+<h1>Event Details</h1>
+
+<dl class="row">
+	<dt class="col-sm-2">Id</dt>
+	<dd class="col-sm-10">@Model.EventID</dd>
+
+	<dt class="col-sm-2">Event Name</dt>
+	<dd class="col-sm-10">@Model.EventName</dd>
+
+	<dt class="col-sm-2">Description</dt>
+	<dd class="col-sm-10">@Model.Description</dd>
+
+	<dt class="col-sm-2">Date</dt>
+	<dd class="col-sm-10">@Model.Date</dd>
+
+	<dt class="col-sm-2">Distance</dt>
+	<dd class="col-sm-10">@Model.Distance</dd>
+
+	<dt class="col-sm-2">Event Type</dt>
+	<dd class="col-sm-10">@Model.EventType</dd>
+</dl>
+
+@if (!string.IsNullOrEmpty(Model.BannerUrl))
+{
+	<div class="mb-3">
+		<label class="fw-bold">Event Banner:</label>
+		<br />
+		<img src="@Model.BannerUrl" alt="Event Banner" style="max-width: 100%; height: auto; max-height: 400px; border-radius: 8px;" />
+	</div>
+}
+
+
+
+<a asp-action="LocationDetails" asp-route-id="@Model.LocationID" class="btn btn-secondary">View Locaction</a>
+<a asp-action="CategoryDetails" asp-route-id="@Model.CategoriesID" class="btn btn-secondary">View Category</a>
+<a asp-controller="Events" asp-action="OrganiserEvents" class="btn btn-secondary">Back to List</a>

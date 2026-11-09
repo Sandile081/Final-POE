@@ -1,0 +1,33 @@
+﻿@model RaceDayManagementSystem.Models.EventEnrolment;
+
+@{
+	ViewData["Title"] = "Edit Status";
+}
+
+<h1>Edit Status</h1>
+
+<form asp-action="EditStatus" asp-route-id="@Model.EventEnrolmentID" method="post">
+
+	<input type="hidden" asp-for="EventEnrolmentID" />
+	<input type="hidden" asp-for="EventID" />
+	<input type="hidden" asp-for="ParticipantID" />
+
+
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+	<div class="mb-3">
+		<label asp-for="EnrolmentStatus" class="form-label">Update Participant Status</label>
+		<input asp-for="EnrolmentStatus" class="form-control" />
+		<span asp-validation-for="EnrolmentStatus" class="text-danger"></span>
+	</div>
+
+	
+
+	<button type="submit" class="btn btn-success">Update Status</button>
+
+	<a asp-controller="Events" asp-action="OrganiserEvents" class="btn btn-secondary">Back to List</a>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

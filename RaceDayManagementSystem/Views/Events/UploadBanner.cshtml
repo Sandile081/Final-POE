@@ -1,0 +1,16 @@
+﻿<h2>Upload Banner for Event</h2>
+
+<!-- ✅ The enctype is mandatory for file uploads! -->
+<form asp-action="UploadBanner" method="post" enctype="multipart/form-data">
+
+    <!-- Hidden input to pass the EventID to the controller -->
+    <input type="hidden" name="eventId" value="@ViewBag.EventID" />
+
+    <div class="form-group mb-3">
+        <label for="bannerFile">Select Banner Image:</label>
+        <!-- The name MUST match the parameter in your controller: bannerFile -->
+        <input type="file" name="bannerFile" class="form-control" accept="image/*" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Upload & Save</button>
+</form>

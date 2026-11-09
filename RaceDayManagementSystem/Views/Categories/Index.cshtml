@@ -1,0 +1,39 @@
+﻿@model RaceDayManagementSystem.Models.Categories;
+
+@{
+	ViewData["Title"] = "Add Location";
+}
+
+<h1><strong>Add Category</strong></h1>
+
+<form asp-action="CreateCategory" method="post">
+
+	<div class="mb-3">
+		<label asp-for="Age" class="form-label">Age</label>
+		<input asp-for="Age" class="form-control" />
+		<span asp-validation-for="Age" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="categoryType" class="form-label">Category Type</label>
+		<input asp-for="categoryType" class="form-control" />
+		<span asp-validation-for="categoryType" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="MaxKM" class="form-label">MaxKM</label>
+		<input asp-for="MaxKM" class="form-control" />
+		<span asp-validation-for="MaxKM" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="MinKM" class="form-label">MinKM</label>
+		<input asp-for="MinKM" class="form-control" />
+		<span asp-validation-for="MinKM" class="text-danger"></span>
+	</div>
+
+	<button type="submit" class="btn btn-primary">Save Category</button>
+	<a asp-controller="Events" asp-action="OrganiserEvents" class="btn btn-secondary">Cancel</a>
+
+</form>
+

@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>87a41944-efd4-40a8-ac5c-3b38bf861249</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\images\banners\096414be-d910-48b0-b8a3-e41b5d646679.png" />
+    <Content Remove="wwwroot\images\banners\1f904fec-bf97-4463-9225-b0f8247e997a.JPG" />
+    <Content Remove="wwwroot\images\banners\26cd82a4-5e86-4262-b900-6d3799d3ae76.png" />
+    <Content Remove="wwwroot\images\banners\679f407c-3e4b-4d7c-9ebd-3efc0e2cd2c1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.24.2-preview.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="wwwroot\images\banners\096414be-d910-48b0-b8a3-e41b5d646679.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\banners\1f904fec-bf97-4463-9225-b0f8247e997a.JPG">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\banners\26cd82a4-5e86-4262-b900-6d3799d3ae76.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="wwwroot\images\banners\679f407c-3e4b-4d7c-9ebd-3efc0e2cd2c1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

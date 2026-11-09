@@ -1,0 +1,124 @@
+﻿@model IEnumerable<RaceDayManagementSystem.Models.Events>
+
+@{
+    ViewData["Title"] = "Upcoming Events";
+}
+
+<!-- Success/Error Alerts -->
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+        @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="container mt-4">
+    
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h2 class="fw-bold mb-1">Upcoming Events</h2>
+            <p class="text-muted mb-0">Find your next race and join the community.</p>
+        </a>
+        <a asp-controller="Participant" asp-action="EditParticipant" class="btn btn-primary btn-lg fw-semibold shadow-sm w-100">
+            Profile Update
+        </a>
+
+            <a asp-controller="EventEnrolment" asp-action="ParticipantEnrolled" class="btn btn-primary btn-lg fw-semibold shadow-sm w-100">
+                 View Status
+            </a>
+            <div class="space"> </div>
+            <a asp-controller="Result" asp-action="Index" class="btn btn-primary btn-lg fw-semibold shadow-sm w-100">
+                View Latest Results
+            </a>
+            <a asp-controller="Result" asp-action="History" class="btn btn-primary btn-lg fw-semibold shadow-sm w-100">
+                History
+            </a>
+            
+        </div>
+    </div>
+
+    <!-- Cards Container -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (var ev in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; overflow: hidden; transition: transform 0.2s;">
+                    
+                    <!-- Banner Image -->
+                    @if (!string.IsNullOrEmpty(ev.BannerUrl))
+                    {
+                        <img src="@ev.BannerUrl" class="card-img-top" alt="@ev.EventName" style="height: 200px; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <!-- Modern Fallback for no image -->
+                        <div class="bg-light d-flex align-items-center justify-content-center text-muted" style="height: 200px;">
+                            <div class="text-center">
+                                <i class="bi bi-image fs-1 mb-2"></i>
+                                <h6 class="mb-0">No Banner</h6>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Card Body -->
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title fw-bold mb-0 text-truncate">@ev.EventName</h5>
+                            <span class="badge bg-primary bg-opacity-10 text-primary border border-primary">@ev.EventType</span>
+                        </div>
+                        
+                        <p class="text-muted small mb-3">
+                            <i class="bi bi-calendar-event"></i> @ev.Date &nbsp;|&nbsp; 
+                            <i class="bi bi-signpost-split"></i> @ev.Distance
+                        </p>
+
+                        <p class="card-text text-secondary flex-grow-1" style="font-size: 0.9rem;">
+                            @(string.IsNullOrEmpty(ev.Description) ? "No description provided." : ev.Description)
+                        </p>
+
+                        <!-- Event Details Buttons -->
+                        <div class="d-flex gap-2 mb-3">
+                            <a asp-action="UserLocation" asp-route-id="@ev.LocationID" class="btn btn-light border btn-sm w-50">
+                                <i class="bi bi-geo-alt text-muted"></i> Location
+                            </a>
+                            <a asp-action="UserCategory" asp-route-id="@ev.CategoriesID" class="btn btn-light border btn-sm w-50">
+                                <i class="bi bi-tags text-muted"></i> Categories
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Action Footer -->
+                    <div class="card-footer bg-white border-top-0 pt-0 pb-3">
+                        <div class="d-grid">
+                            <!-- Make the Enrol button pop! -->
+                            <a asp-action="Enrol" asp-route-eventId="@ev.EventID" class="btn btn-primary btn-lg fw-semibold shadow-sm w-100">
+                                Enrol Now
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<!-- Optional: Add a slight lift effect on hover -->
+<style>
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+</style>

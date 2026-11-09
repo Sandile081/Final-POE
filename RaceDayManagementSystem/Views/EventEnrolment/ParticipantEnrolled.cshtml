@@ -1,0 +1,46 @@
+﻿@model IEnumerable<RaceDayManagementSystem.Models.EventEnrolment>
+
+@{
+	ViewData["Title"] = "Enrolment";
+}
+
+<h1>Status Deshboard</h1>
+
+@if (TempData["Success"] != null)
+{
+	<div class="alert alert-success">@TempData["Success"]</div>
+}
+
+@if (TempData["Error"] != null)
+{
+	<div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<p>
+	<a asp-controller="Events" asp-action="Index" class="btn btn-primary">Back Home</a>
+</p>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Event ID</th>
+			<th>Participant ID</th>
+			<th><strong>Enrolment Status</strong></th>
+
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var eventEnrolment in Model)
+		{
+			<tr>
+				<td>@eventEnrolment.EventEnrolmentID</td>
+				<td>@eventEnrolment.EventID</td>
+				<td>@eventEnrolment.ParticipantID</td>
+                <td><strong>@eventEnrolment.EnrolmentStatus</strong></td>
+				
+			</tr>
+		}
+	</tbody>
+</table>
+

@@ -1,0 +1,35 @@
+﻿@model RaceDayManagementSystem.Models.Result;
+
+@{
+	ViewData["Title"] = "Edit Results";
+}
+
+<h1>Edit Results</h1>
+
+<form asp-action="EditResults" asp-route-id="@Model.ResultID" method="post">
+	<input type="hidden" asp-for="ResultID" />
+	<input type="hidden" asp-for="ParticipantID" />
+	<input type="hidden" asp-for="OrganiserID" />
+	
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+	<div class="mb-3">
+		<label asp-for="Time" class="form-label"></label>
+		<input asp-for="Time" class="form-control" />
+		<span asp-validation-for="Time" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="FinishingPosition" class="form-label"></label>
+		<input asp-for="FinishingPosition" class="form-control" />
+		<span asp-validation-for="FinishingPosition" class="text-danger"></span>
+	</div>
+
+	
+	<button type="submit" class="btn btn-success">Udate Results</button>
+	<a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

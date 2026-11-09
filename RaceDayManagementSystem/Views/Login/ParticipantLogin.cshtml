@@ -1,0 +1,81 @@
+﻿@model RaceDayManagementSystem.Models.ParticipantLogin;
+
+@{
+    ViewData["Title"] = "Participant Login";
+}
+
+<style>
+    .login-container {
+        min-height: 75vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        padding: 40px;
+        max-width: 450px;
+        width: 100%;
+        background: #ffffff;
+    }
+    .form-control {
+        border-radius: 10px;
+        padding: 12px;
+    }
+    .btn-custom {
+        border-radius: 10px;
+        padding: 12px;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-card">
+        
+        <div class="text-center mb-4">
+            <!-- Using a runner icon for the participant portal -->
+            <h2 class="fw-bold">Participant Portal</h2>
+            <p class="text-muted">Sign in to view and enrol in events</p>
+        </div>
+
+        <form asp-action="LoggingInToo" method="post">
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-4">
+                <label asp-for="ParticipantUsername" class="form-label fw-semibold">Username</label>
+                <input asp-for="ParticipantUsername" class="form-control" placeholder="Enter your username" />
+                <span asp-validation-for="ParticipantUsername" class="text-danger"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="ParticipantPassword" class="form-label fw-semibold">Password</label>
+                <!-- Changed type to password so it hides the text -->
+                <input asp-for="ParticipantPassword" class="form-control" type="password" placeholder="Enter your password" />
+                <span asp-validation-for="ParticipantPassword" class="text-danger"></span>
+            </div>
+
+            <div class="d-grid gap-3 mt-4">
+                <!-- Made the button primary blue to match the Participant theme -->
+                <button type="submit" class="btn btn-primary btn-custom">
+                    Log In
+                </button>
+            </div>
+
+        </form>
+
+        <div class="text-center mt-4">
+            <p class="mb-0 text-muted">New to RaceDay?</p>
+            <!-- Clean link for registration -->
+            <a asp-controller="Participant" asp-action="Index" class="text-decoration-none fw-semibold">Create an account</a>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

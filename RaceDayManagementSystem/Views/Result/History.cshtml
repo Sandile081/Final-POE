@@ -1,0 +1,46 @@
+﻿@model IEnumerable<RaceDayManagementSystem.Models.Result>
+
+@{
+	ViewData["Title"] = "Results";
+}
+
+<h1>History</h1>
+
+@if (TempData["Success"] != null)
+{
+	<div class="alert alert-success">@TempData["Success"]</div>
+}
+
+@if (TempData["Error"] != null)
+{
+	<div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<a asp-controller="Events" asp-action="Index" class="btn btn-secondary">Back to List</a>
+
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Your ID</th>
+			<th>Time</th>
+			<th>Position</th>
+		
+			
+
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var results in Model)
+		{
+			<tr>
+				<td>@results.ResultID</td>
+				<td>@results.ParticipantID</td>
+				<td>@results.Time</td>
+				<td><strong>@results.FinishingPosition</strong></td>
+
+			</tr>
+		}
+	</tbody>
+</table>

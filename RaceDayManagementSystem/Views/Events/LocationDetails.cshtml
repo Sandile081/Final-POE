@@ -1,0 +1,29 @@
+﻿@model RaceDayManagementSystem.Models.Location;
+
+@{
+	ViewData["Title"] = "Event Details";
+}
+
+<h1>Event Location Details</h1>
+
+<dl class="row">
+	<dt class="col-sm-2">Id</dt>
+	<dd class="col-sm-10">@Model.LocationID</dd>
+
+	<dt class="col-sm-2">Province</dt>
+	<dd class="col-sm-10">@Model.Province</dd>
+
+	<dt class="col-sm-2">Town</dt>
+	<dd class="col-sm-10">@Model.Town</dd>
+
+	<dt class="col-sm-2">Physical Address</dt>
+	<dd class="col-sm-10">@Model.PhysicalAddress</dd>
+
+
+</dl>
+
+
+<a asp-action="EditLocation" asp-route-id="@Model.LocationID" class="btn btn-secondary">Edit Location</a>
+
+<a asp-controller="Events" asp-action="OrganiserEvents" class="btn btn-secondary">Back to List</a>
+
