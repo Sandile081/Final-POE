@@ -1,0 +1,2 @@
+Configured ASP.NET Core Sessions. Created the Organiser Login/Registration controllers to save the Organiser's ID 
+in the browser session so they stay logged in.
