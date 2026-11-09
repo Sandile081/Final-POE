@@ -1,0 +1,2 @@
+ Designed the main Organiser view using Bootstrap cards. It fetches only the 
+events created by the logged-in Organiser and shows participant counts.
