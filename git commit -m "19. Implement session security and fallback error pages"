@@ -1,0 +1,2 @@
+Added null-checks to ensure users who aren't logged in are redirected to the login page. Created try/catch blocks 
+for HttpRequestException to handle cases where the API is down.
