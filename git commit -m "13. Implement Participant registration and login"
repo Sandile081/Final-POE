@@ -1,0 +1,1 @@
+Duplicated the authentication flow for Participants. Created a separate Participant Login page and saved their ID to the session.
