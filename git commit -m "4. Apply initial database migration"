@@ -1,0 +1,1 @@
+Used Entity Framework CLI tools to generate the initial database schema and push it to SQL Server, creating all the tables and columns.
